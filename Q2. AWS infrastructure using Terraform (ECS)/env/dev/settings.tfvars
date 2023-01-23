@@ -20,4 +20,5 @@ platform_version                  = "1.4.0"
 /* ACTUALLY THIS MAY NOT BE NEED SINCE THERE IS AN ASSUMPTION UPON AN EXITING SUBNETS
 subnet_availability_zones_names = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
 private_subnet_cidr_blocks      = ["10.20.30.0/24", "10.20.31.0/24"]
-public_subnet_cidr_blocks       = ["10.20.32.0/24", "10.20.33.0/24"]                               
+public_subnet_cidr_blocks       = ["10.20.32.0/24", "10.20.33.0/24"]
+#                               

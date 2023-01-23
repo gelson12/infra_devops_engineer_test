@@ -1,29 +1,33 @@
-#!groovy
-
-pipeline {
-    environment {
-        JAVA_TOOL_OPTIONS = "-Duser.home=/home/jenkins"
+pipeline{
+    agent any
+    tools {
+        maven 'MAVEN'
     }
-    agent {
-        dockerfile {
-            label "docker"
-            args "-v /tmp/maven:/home/jenkins/.m2 -e MAVEN_CONFIG=/home/jenkins/.m2"
-        }
-    }
-
     stages {
-        stage("Build") {
-            steps {
-                sh "ssh -V"
-                sh "mvn -version"
-                sh "mvn clean install"
+        stage('Build Maven') {
+            steps{
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'gelson12', url: 'https://github.com/gelson12/infra_devops_engineer_test.git...]]])
+
+                sh "mvn -Dmaven.test.failure.ignore=true clean package"
+                
             }
         }
-    }
-
-    post {
-        always {
-            cleanWs()
+        stage('Build Docker Image') {
+            steps {
+                script {
+                  sh 'docker build -t gelsonm/test-1.0 .'
+                }
+            }
+        }
+        stage('Deploy Docker Image') {
+            steps {
+                script {
+                 withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
+                    sh 'docker login -u gelsonm -p ${dockerhubpwd}'
+                 }  
+                 sh 'docker push gelsonm/app-1.0'
+                }
+            }
         }
     }
 }
