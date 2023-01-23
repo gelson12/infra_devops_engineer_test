@@ -1,0 +1,6 @@
+= Jenkins Pipeline Maven build demo
+
+== Explanation 1: 
+That application will eventually need to be deployed to UAT, pre-production and production. Please explain what steps you should take to make sure that the application is successfully deployed to production.
+A: in the "Q2. AWS infrastructure using Terraform(ECS)" under "env" folder you will find
+all different environment settings which be executed in ".github/workflows" by the "terraform.yml"
