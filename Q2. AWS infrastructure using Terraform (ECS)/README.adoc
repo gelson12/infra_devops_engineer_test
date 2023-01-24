@@ -1,4 +1,4 @@
-= Jenkins Pipeline Maven build demo
+= Jenkins Pipeline Maven build 
 
 == Explanation 1: 
 That application will eventually need to be deployed to UAT, pre-production and production. Please explain what steps you should take to make sure that the application is successfully deployed to production.
