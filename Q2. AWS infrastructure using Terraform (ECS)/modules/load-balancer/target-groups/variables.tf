@@ -50,7 +50,7 @@ variable "port" {
   type        = number
 }
 
-variable "vpc_id" {
+variable "network_vpc_id" {
   description = "The VPC id."
   type        = string
 }
