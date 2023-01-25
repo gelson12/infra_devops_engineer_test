@@ -3,7 +3,6 @@ network_vpc_id     = "vpc-assumed"
 private_subnet_ids = ["subnet-pr1v-assumed"]
 public_subnet_ids  = ["subnet-publ-assumed"]
 
-lms_app_nlb_ips = ["10.187.221.56", "10.187.221.120", "10.187.221.184"]
 
 deployment_controller_type         = "DEPLOY_THE_CODE"
 deployment_maximum_percent         = 200
@@ -21,4 +20,4 @@ platform_version                  = "1.4.0"
 subnet_availability_zones_names = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
 private_subnet_cidr_blocks      = ["10.20.30.0/24", "10.20.31.0/24"]
 public_subnet_cidr_blocks       = ["10.20.32.0/24", "10.20.33.0/24"]
-#                               
+*/                              
