@@ -1,9 +1,9 @@
 resource "aws_lb_target_group" "main" {
-  for_each = toset(["blue", "green"])
+  //for_each = toset(["blue", "green"])
 
   name = "${var.name}-${each.key}"
 
-  vpc_id      = var.vpc_id
+  vpc_id      = var.network_vpc_id
   port        = var.port
   protocol    = "HTTP"
   target_type = "ip"
